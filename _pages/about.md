@@ -3,8 +3,11 @@ layout: page
 title: About Me
 permalink: /about/
 ---
-Jinchao Chen 
+**Jinchao Chen**
 
-Chinese on an adventure in Europe
-Addicted with ocean and waves
-An engineer who like coding better than CAD drawings. 
+:cn: Chinese on an adventure in Europe <br/>
+:man_mechanic: An engineer who is becoming more fluent in coding than drafting <br/>
+:surfing_man: A thalassophile in addiction with ocean and waves <br/>
+
+# Contact 
+
