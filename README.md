@@ -9,5 +9,3 @@ https://jinchao-chen.github.io/blog_posts/
 # My Blog
 
 This is a blog site created using [fastpages](https://github.com/fastai/fastpages). I post here topics that fascinate me. 
-
-_powered by [fastpages](https://github.com/fastai/fastpages)_
