@@ -3,7 +3,11 @@ layout: page
 title: About Me
 permalink: /about/
 ---
+**Jinchao Chen**
 
-Jinchao
+:cn: Chinese on an adventure in Europe <br/>
+:man_mechanic: An engineer who is becoming more fluent in coding than drafting <br/>
+:surfing_man: A thalassophile in addiction with ocean and waves <br/>
 
-- passionate about ocean and waves
+# Contact 
+
