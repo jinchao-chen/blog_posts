@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Customer Segmentation for Arvato Financial Services | Jinchao Chen</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Customer Segmentation for Arvato Financial Services" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Customer Segmentation report using machine learning models" />
+<meta property="og:description" content="Customer Segmentation report using machine learning models" />
+<link rel="canonical" href="https://jinchao-chen.github.io/blog_posts/markdown/2020/12/08/Arvato_Financial.html" />
+<meta property="og:url" content="https://jinchao-chen.github.io/blog_posts/markdown/2020/12/08/Arvato_Financial.html" />
+<meta property="og:site_name" content="Jinchao Chen" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-08T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://jinchao-chen.github.io/blog_posts/markdown/2020/12/08/Arvato_Financial.html","@type":"BlogPosting","headline":"Customer Segmentation for Arvato Financial Services","dateModified":"2020-12-08T00:00:00-06:00","datePublished":"2020-12-08T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jinchao-chen.github.io/blog_posts/markdown/2020/12/08/Arvato_Financial.html"},"description":"Customer Segmentation report using machine learning models","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog_posts/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jinchao-chen.github.io/blog_posts/feed.xml" title="Jinchao Chen" /><link rel="shortcut icon" type="image/x-icon" href="/blog_posts/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog_posts/">Jinchao Chen</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog_posts/about/">About Me</a><a class="page-link" href="/blog_posts/search/">Search</a><a class="page-link" href="/blog_posts/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Customer Segmentation for Arvato Financial Services</h1><p class="page-description">Customer Segmentation report using machine learning models</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-12-08T00:00:00-06:00" itemprop="datePublished">
+        Dec 8, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      10 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog_posts/categories/#markdown">markdown</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="project-definition">Project Definition</h2>
+
+<h3 id="project-overview">project overview</h3>
+
+<p>This blog post is part of the Capstone Project for the Udacity Data Scientist nano degree program. In this project, the demographics data was utilized, to identify the potential customers for the mail-order company, a client of Arvato Financial Services. The supervised machine learning model, the outcome of this project, predicts whether or not individuals will respond to the campaign.</p>
+
+<p>The blog post is composed of three parts:</p>
+
+<ul>
+  <li>
+    <p>Data Exploration: Understanding the data and data cleaning</p>
+  </li>
+  <li>
+    <p>Unsupervised learning: a customer segmentation report</p>
+  </li>
+  <li>
+    <p>Supervised learning: a classifier that predicts whether an individual will respond</p>
+  </li>
+</ul>
+
+<h3 id="project-statement">project statement</h3>
+
+<p>In the first part, the main focus is on cleaning the data and exploring feature engineering options. With it completed, the data is then used to build an unsupervised machine learning model that performs segmentation for the customers and the general population. This model works to group individuals based on their features. By comparing to the general population, we could identify features that best describe the customers. Lastly, a prediction model was created to identify individuals who are more likely to respond to the campaign.</p>
+
+<h3 id="metrics">metrics</h3>
+
+<p>The prediction model is a binary classifier that separates the target group (who will respond) from the non-target group. As the dataset is highly imbalanced with a very low positive rate (1.2%), accuracy alone won’t be the appropriate evaluation metric to measure how well the model classifies the minority group. Instead, we will use the ROC AUC score to evaluate model performance. When evaluating this binary classifier, we like to capture all the positive groups while minimizing the false positive rate. ROC AUC score is, therefore, an appropriate metric, since it summarizes the trade-off between the true-positive rate and false-positive rate.</p>
+
+<h2 id="part-i-data-preparation">PART I: Data preparation</h2>
+
+<p>There are four data files associated with this project:</p>
+
+<ul>
+  <li>
+    <p>Udacity_AZDIAS_052018.csv: Demographics data for the general population of Germany; 891 211 persons (rows) x 366 features (columns).</p>
+  </li>
+  <li>
+    <p>Udacity_CUSTOMERS_052018.csv: Demographics data for customers of a mail-order company; 191 652 persons (rows) x 369 features (columns).</p>
+  </li>
+  <li>
+    <p>Udacity_MAILOUT_052018_TRAIN.csv: Demographics data for individuals who were targets of a marketing campaign; 42 982 persons (rows) x 367 (columns).</p>
+  </li>
+  <li>
+    <p>Udacity_MAILOUT_052018_TEST.csv: Demographics data for individuals who were targets of a marketing campaign; 42 833 persons (rows) x 366 (columns).</p>
+  </li>
+</ul>
+
+<p>In addition to the above, Arvato provides two information files that describe attributes depicted in the data file.</p>
+
+<ul>
+  <li>
+    <p>DIAS Information Levels — Attributes 2017.xlsx: is a top-level list of attributes and descriptions, organized by informational category.</p>
+  </li>
+  <li>
+    <p>DIAS Attributes — Values 2017.xlsx: is a detailed mapping of data values for each feature in alphabetical order.</p>
+  </li>
+</ul>
+
+<h3 id="feature-summary--data-exploration">Feature summary — data exploration</h3>
+
+<p>As the first step, I created a feature summary file that summarizes the names of the attributes, the datatype, and missing or unknown representation. This summary file forms the basis of data preprocessing.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*FgHgPdjdlYWu3eA_DiOSZw.png" alt="Screenshot of feature summary" /><em>Screenshot of feature summary</em></p>
+
+<p>A quick scan shows that the data in the file is mostly ordinal. For example, “D19_BANKEN_ANZ_12” describes the frequency of transaction activity. The values range from least frequent (0 = very low activity) to the most frequent (6 = very high activity). Since it is ranking based, the datatype “D19_BANKEN_ANZ_12” is ordinal. As most of the features are ordinal, I will pre-assign the feature type as ‘ordinal’. If further analysis shows otherwise, I will update the summary table.</p>
+
+<p>In addition, it is noticed that the naming of most features follows a fixed structure. For example, in “D19_NAHRUNGSERGAENZUNG_RZ”, the first part “D19” presents the data source, while the rest describe the content of the feature (NAHRUNGSERGAENZUN = FOOD SUPPLEMENT). As data from the same source tend to be encoded in a similar manner, I decided to split the attribute names and use the first part (prefix) to investigate feature encoding in groups. By grouping the features, I was able to create a summary table for 276 features in a structured way.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*h0O2qcZZ8hFabAnq1K_FYA.png" alt="top-ranked prefixes used in naming" /><em>top-ranked prefixes used in naming</em></p>
+
+<p>Furthermore, it is noticed from the analysis that:</p>
+
+<ul>
+  <li>
+    <p>Non-numeric values are assigned to a number of columns: “OST_WEST_KZ”, “CAMEO_DEUG_2015”, “CAMEO_DEU_2015”, 
+ “CAMEO_INTL_2015”, “D19_LETZTER_KAUF_BRANCHE”. I will therefore use LabelEncoder to transform it, and replace the abnormal values (“X”, “XX”) as unknowns.</p>
+  </li>
+  <li>
+    <p>‘EINGEFUEGT_AM’ uses date and time as feature values. I extracted the year from the string, which will be treated as numerical data.</p>
+  </li>
+  <li>
+    <p>As presented in the bar chart below, most of the features are ordinal, with few features are numerical. The rest, 73 features, is treated as categorical.</p>
+  </li>
+</ul>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*Mc97Q7UDIpzJHYt4UBvA1Q.png" alt="Distribution of datatypes among the features" /><em>Distribution of datatypes among the features</em></p>
+
+<h3 id="data-cleaning-transformation-and-feature-engineering">Data cleaning, transformation, and feature engineering</h3>
+
+<p>The data cleaning involves multiple steps:</p>
+
+<ul>
+  <li>
+    <p>Convert missing values to NaNs.</p>
+  </li>
+  <li>
+    <p>Drop rows and columns where a large portion are NaN’s</p>
+  </li>
+  <li>
+    <p>Replacing Missing values with the most frequent.</p>
+  </li>
+  <li>
+    <p>Outlier detection using Z-score</p>
+  </li>
+  <li>
+    <p>One Hot Encoding for Categorical Data.</p>
+  </li>
+  <li>
+    <p>Min-max scaling for ordinal and numerical data</p>
+  </li>
+  <li>
+    <p>Create a data cleaning pipeline, to be used later for later analysis</p>
+  </li>
+</ul>
+
+<iframe src="https://medium.com/media/014380abcd7e442b54dec9fc7748a38a" frameborder="0"></iframe>
+
+<p>The data pre-processing pipeline includes two steps:</p>
+
+<ul>
+  <li>
+    <p>the first step ‘reduce dimension’ includes mapping the unknowns, selecting columns of interests, remove</p>
+  </li>
+  <li>
+    <p>the second step ‘combined pipe’ applies different data transformation strategies according to the datatypes.</p>
+  </li>
+</ul>
+
+<p>At the first step, I decided to keep all the features in the analysis: the nan-threshold appears to cause data drain, which hampers the performance of the supervised machine learning model.</p>
+
+<p>At the second step, the nan’s were replaced with either the median or the most frequent value. Afterward, the numerical values were scaled using MinMax scaler while the categorical values were transformed using OneHotEncoder.</p>
+
+<h2 id="part-ii-customer-segmentation-report">PART II: Customer segmentation report</h2>
+
+<p>In this section, unsupervised learning techniques are utilized to compare the demographic data of the customers and the general population.</p>
+
+<h3 id="principal-component-analysis">Principal Component Analysis</h3>
+
+<p>To start with, I used Principal Component Analysis (PCA) to summarize the information contained in the data files. This is an efficient way to combine similar features while maintaining the variance of the data.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*otng9WBDz54Rqf72MMZFnA.png" alt="" /></p>
+
+<p>The accumulated explained variance increases, with the increase in the number of principal components included in the model. It was decided to include the first 216 PCA’s, which captures more than 80% of the accumulated variance.</p>
+
+<h2 id="clustering">Clustering</h2>
+
+<p>The clustering is based on the elbow method. I decided to include 10 clusters in total since additional clusters only slightly reduce the inertia of KNMeans.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*azo3fUerlDvSAifB_GCGeA.png" alt="" /></p>
+
+<p>Using the clustering model, I compared the difference between the customers and the general population. The figure below presents the distribution of the data over the 10 clusters. From the figures, it is concluded that customers tend to belong to cluster #2 and cluster #7, while the general population is evenly distributed among the clusters.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*wDGOAbEOd95LqenU8Y2Pjg.png" alt="" /></p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*ZX9pcrvZMXmRK2-gh3Mv8g.png" alt="" /></p>
+
+<p>The bar chart above presents the difference between the general population and the customers, in terms of the proportion of each cluster. It is noticed that differences are the largest in cluster 5 and cluster 7.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*ZjDeEKzoW3wXHwiyAJeoqg.png" alt="" /></p>
+
+<p>The heatmap above presents the relevance of each PCA to each cluster. Combined with the comparison between the general population and customer, we could infer that potential customers tend to live in a neighborhood with a higher number of car ownership, and they are older than the general population.</p>
+
+<h2 id="part-iii-prediction">PART III: Prediction</h2>
+
+<p>With segmentation completed, a supervised machine learning model was built to predict whether the individuals in the dataset will convert to be a customer. The analysis is based on demographics contained Udacity_MAILOUT_052018_TRAIN.csv (trainig data)and Udacity_MAILOUT_052018_TEST (test dta).csv. The training data contains one additional column named ‘response’ while we need to predict it for the testing dataset.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Training set:
+total records: 42962
+who responded to mail out campain: 532
+who did not respond: 42430
+na's in the RESPONSE column: 0
+portion of response: 1.24%
+</code></pre></div></div>
+
+<p>A further examination shows that only 1.24% of people responded to the campaign in the training set, which results in a highly imbalanced data set. To deal with the imbalance dataset in this binary classification, I used the ROC AUC score to evaluate model performance that measures both the true positive and false-positive rates.</p>
+
+<p>In modeling, I used Ensembling classifiers as it shows improved performances over a single learner. Besides, I made use of the balanced ensemble methods provided in [<em>imbalanced-learn](https://imbalanced-learn.readthedocs.io/en/stable/index.html)</em>, which internally samples the data. As concluded in ref.[1], the balanced Ensembling classifier greatly enhances model performance.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*Kp83HbZF9ucafDF2ZgW0VQ.png" alt="Confusion matrixes, using different classifiers" /><em>Confusion matrixes, using different classifiers</em></p>
+
+<p>From the estimators that I compared, <em>EasyEnsemble *was</em> <em>selected as it yielded the highest ROC AUC score. It yielded a ROC AUC score of 0.78, even without hyperparameter tuning. The non-balanced models (Bagging, AdaBoost) have a score of 0.5, which indicates the models failed to provide a prediction and all were predicted to be negative. In comparison, the balanced models show significantly improved performance, thanks to the balancing techniques internally implemented in *imbalanced-learn</em>.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*REXQ9LyzJBsqwcBvA81lBQ.png" alt="Feature importance" /><em>Feature importance</em></p>
+
+<p>Figure about shows the feature importance. ‘D19_SOZIALES’ has the highest weight in the prediction model. A potential customer tends to have a value of ‘1.0 ’ in ‘D19_SOZIALES’. Unfortunately, the meaning of this feature was not provided in the information file. We were unable to further interpret the feature.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*wrG3_eH6fAyene4Fz4NmoQ.png" alt="Influence of the total number of features in ROC AUC score." /><em>Influence of the total number of features in ROC AUC score.</em></p>
+
+<p>It however strikes me that the performance of the model is not highly dependent on the number of features used to create in the model. It already yields a ROC AUC score of 0.78, when including the top three of the most important features.</p>
+
+<p>Further efforts were spared in fine-tuning the model, as provided below. From the parameters compared, it is decided to include 30 estimators for the base model and 30 estimators for the *EasyEnsembleClassifier. *The ROC AUC score is slightly increased to 0.80.</p>
+
+<iframe src="https://medium.com/media/8895c7bc4d3668a62350f0eeeaaab199" frameborder="0"></iframe>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>From the confusion matrix for EasyEnsemble, it is noted that the model has a true positive rate of 0.88. The classifier manages to identify the majority of the individuals who will respond. Even if we limit the campaign to the individuals who are predicted to be positive, we could still reach 88% of the target group (true positives). If adopting this strategy in the campaign, we could effectively reduce the campaign to 33% of its original size. In conclusion, the machine learning model works to predict whether or not each individual will respond to the campaign. The has the potential to help the mail-order company to better target the customers.</p>
+
+<p>This is the first machine learning model that I created using real-world data. It is quite challenging a project in tow aspects:</p>
+
+<ul>
+  <li>
+    <p>The large dimension of the data set requires extensive efforts in understanding the data and establishing a strategy to process the data</p>
+  </li>
+  <li>
+    <p>It is also highly imbalanced, which requires proper sampling to be suitable for classification analysis.</p>
+  </li>
+</ul>
+
+<p>The deeper that I dived into the data, the more I realized the importance of proper feature engineering. To enhance the performance of the data, I would refine the feature engineering strategies, to better select and extract information from the data set. Besides, I would also like to explore more advanced classifiers with enhanced performances in dealing with an imbalanced data set.</p>
+
+<h2 id="reference">Reference:</h2>
+
+<p>[1].Comparison of ensembling classifiers internally using sampling: <a href="https://imbalanced-learn.readthedocs.io/en/stable/auto_examples/ensemble/plot_comparison_ensemble_classifier.html#sphx-glr-auto-examples-ensemble-plot-comparison-ensemble-classifier-py">https://imbalanced-learn.readthedocs.io/en/stable/auto_examples/ensemble/plot_comparison_ensemble_classifier.html#sphx-glr-auto-examples-ensemble-plot-comparison-ensemble-classifier-py</a></p>
+
+  </div><a class="u-url" href="/blog_posts/markdown/2020/12/08/Arvato_Financial.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog_posts/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog_posts/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog_posts/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A collection of posts for my data science projects.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/jinchao-chen" title="jinchao-chen"><svg class="svg-icon grey"><use xlink:href="/blog_posts/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
