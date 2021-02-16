@@ -2,7 +2,7 @@
 toc: false
 layout: post
 description: An exploratory data analysis of Freight transport in the Netherland 
-categories: [markdown]
+categories: [data analysis,markdown]
 title: How Did Road Freight Transport Develop in the Netherlands?
 ---
 
