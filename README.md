@@ -10,4 +10,4 @@ https://jinchao-chen.github.io/blog_posts/
 
 This is a blog site created using [fastpages](https://github.com/fastai/fastpages). 
 
-I post here topics that I am passionate about. 
+I post here topics that I fancy. :)  
