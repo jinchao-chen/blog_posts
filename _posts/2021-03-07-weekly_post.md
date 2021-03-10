@@ -11,7 +11,7 @@ This is the first of my weekly posts. I started weekly posts to track my project
 Recently I started the mooc course by [fast.ai](https://course.fast.ai) on Practical Deep Learning for Coders . This week's post is mainly on deeep learning jargons and a hobby project that classifies bear type based on the uploaded image.
 
 ## Projects
-[bear classifier](https://mybinder.org/v2/gh/jinchao-chen/fastbook/colab?filepath=my_books%2Fvoila%2Frender%2Fclassifier_bear.ipynb): a simple NN that classifies the bear as teddy, black bear or frizzy bear. The model was created using fastai. The training data, labeled images of black, teddy and frizzy bear, was downloaded through Bing image search. The deep learning model deployed using voila on mybinder. 
+[bear classifier](https://a-bear-classifier.herokuapp.com): a simple NN that classifies the bear as teddy, black bear or frizzy bear. The model was created using fastai. The training data, labeled images of black, teddy and frizzy bear, was downloaded through Bing image search. The deep learning model deployed using voila on mybinder. 
 
 ## Jargons 
 **end-to-end iteration**: start iterate from end to end; that is, don't spend months fine-tuning your model, or polishing the perfect GUI, or labelling the perfect dataset. Instead, complete every step as well as you can in a reasonable amount of time, all the way to the end. 
