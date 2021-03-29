@@ -1,7 +1,7 @@
 ---
 toc: false
 layout: post
-hide: false
+hide: true
 description: weekly post on project development, reading notes, and new skills
 categories: [markdown, weekly post]
 title: Weekly Post - 01
